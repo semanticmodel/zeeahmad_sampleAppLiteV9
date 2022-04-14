@@ -1,0 +1,48 @@
+{
+  "database" : {
+    "name" : "Sample App Lite Data",
+    "databaseType" : "ORACLE_DATABASE",
+    "connectionPools" : [ {
+      "name" : "SampleApp_Lite_Xml",
+      "description" : "SampleAppLite connection pool to XML datasource. This connection pool points the database to the location where physical XML files are stored. The location uses the value of an RPD variable : BI_EE_HOME.\r\nThis variable needs to be correctly set in order for the server to connect to the files.",
+      "connection" : "'system'.'PRIVATE READ ONLY SMConnection'",
+      "remoteConnection" : false,
+      "maxConnections" : 10,
+      "requiresFullyQualifedTableNames" : false,
+      "connectionTimeoutUnit" : "WHEN_QUERY_COMPLETES",
+      "multithreaded" : false,
+      "supportParams" : false,
+      "writeBackConfig" : {
+        "dbSupportsUnicode" : false,
+        "bulkInsertBufferSize" : 10485760,
+        "transactionBoundary" : 0
+      }
+    } ],
+    "virtualPrivateDatabase" : false,
+    "crmMetadataTables" : false,
+    "allowDirectDatabaseRequests" : false,
+    "allowPopulateQueries" : false,
+    "queryLimits" : [ {
+      "accessor" : "role:BIAdministrator",
+      "maxRowSetting" : "INHERIT",
+      "maxRows" : 100000,
+      "maxTimeSetting" : "INHERIT",
+      "maxTime" : 600,
+      "directDatabaseRequests" : "ALLOW"
+    }, {
+      "accessor" : "role:BIAuthor",
+      "maxRowSetting" : "INHERIT",
+      "maxRows" : 100000,
+      "maxTimeSetting" : "INHERIT",
+      "maxTime" : 600,
+      "directDatabaseRequests" : "ALLOW"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "maxRowSetting" : "INHERIT",
+      "maxRows" : 100000,
+      "maxTimeSetting" : "INHERIT",
+      "maxTime" : 600,
+      "directDatabaseRequests" : "ALLOW"
+    } ]
+  }
+}

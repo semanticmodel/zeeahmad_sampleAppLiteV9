@@ -1,0 +1,11 @@
+{
+  "initBlock" : {
+    "name" : "staticVariables",
+    "description" : "rpd repository static variables",
+    "type" : "STATIC",
+    "variables" : [ {
+      "name" : "BI_EE_HOME",
+      "value" : "'C:\\OBI11G\\instances\\instance1\\bifoundation\\OracleBIServerComponent\\coreapplication_obis1'"
+    } ]
+  }
+}

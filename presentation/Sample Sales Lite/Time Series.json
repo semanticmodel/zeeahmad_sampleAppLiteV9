@@ -1,0 +1,46 @@
+{
+  "presentationTable" : {
+    "name" : "Time Series",
+    "description" : "->\r\nThis folder contains several Period-To-Date and Period-Ago metrics based on Revenue fact.",
+    "presentationColumns" : [ {
+      "name" : "Period Ago Revenue",
+      "description" : "Shows the period Ago Revenue. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return Day Ago, if month then month ago...",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Period Ago Revenue"
+    }, {
+      "name" : "Revenue Variation to Last Period",
+      "description" : "Shows the variation between current period and period Ago Revenu. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return variation to Day Ago, if month then variation to month ago...",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue Variation to Last Period"
+    }, {
+      "name" : "Revenue Pct Var. to Last Period",
+      "description" : "Shows the percentage variation between current period and period Ago Revenue. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return variation to Day Ago, if month then variation to month ago...",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue Pct Var\\. to Last Period"
+    }, {
+      "name" : "Trailing 3 Periods Revenue",
+      "description" : "Shows the sum of current period plus 2 past Ago Revenue. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return trailing 3 Days, if month then trailing 3 months...",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Trailing 3 Periods Revenue"
+    }, {
+      "name" : "Month Ago Revenue",
+      "description" : "Shows the Month Ago Revenue. This calculation is not dependent on the query time grain and will always return the value as of month ago.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Month Ago Revenue"
+    }, {
+      "name" : "Quarter Ago Revenue",
+      "description" : "Shows the Quarter Ago Revenue. This calculation is not dependent on the query time grain and will always return the value as of Quarter ago.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Quarter Ago Revenue"
+    }, {
+      "name" : "Year Ago Revenue",
+      "description" : "Shows the Year Ago Revenue. This calculation is not dependent on the query time grain and will always return the value as of Year ago.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Year Ago Revenue"
+    }, {
+      "name" : "Quarter to Date Revenue",
+      "description" : "Shows the Quarter to date sum of Revenue. This calculation is not dependent on the query time grain.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Quarter to Date Revenue"
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIAdministrator",
+      "access" : "READ"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

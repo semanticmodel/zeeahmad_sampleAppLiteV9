@@ -1,0 +1,425 @@
+{
+  "logicalTable" : {
+    "name" : "F0 Revenue Base Measures",
+    "description" : "This logical table contains metrics like Revenue, Billed Qty, with different types of aggregations like Sum, Count Distinct and logical calculations.\r\nThis logical table is at the order level grain but is sourced from 3 alternate Logical Table Sources : one detail source at the order grain level, one aggregate source at the product-month grain, and one at the product-office-month grain. BIEE server will automatically go to the most appropriate source based on the level included in each user query.",
+    "type" : "FACT",
+    "logicalColumns" : [ {
+      "name" : "Revenue",
+      "description" : "Returns the Revenue from the Revenue Facts table with a Sum aggregation",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Revenue" ]
+          }
+        }, {
+          "logicalTableSource" : "LTS2 Revenue Facts Aggregate 1",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F11 Revenue Facts Aggregate.Revenue" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "SUM",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "Billed Quantity",
+      "description" : "Returns the Billed Quantity from the Revenue Facts table with a Sum aggregation",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Units" ]
+          }
+        }, {
+          "logicalTableSource" : "LTS2 Revenue Facts Aggregate 1",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F11 Revenue Facts Aggregate.Units" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "SUM",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "Discount Amount",
+      "description" : "Returns the Discount Amount from the Revenue Facts table with a Sum aggregation",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Discnt_Value" ]
+          }
+        }, {
+          "logicalTableSource" : "LTS2 Revenue Facts Aggregate 1",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F11 Revenue Facts Aggregate.Discnt_Value" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "SUM",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "# of Offices with Orders",
+      "description" : "This metric counts the distinct number of orders in the query population. The aggregation is a Count Distinct aggregation",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Office_Key" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "COUNT_DISTINCT",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "# of Orders",
+      "description" : "This metric counts the distinct number of orders in the query population. The aggregation is a Count Distinct aggregation",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Number" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "COUNT_DISTINCT",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "# of Products with Orders",
+      "description" : "This metric counts the distinct number of Products in the query population. The aggregation is a Count Distinct aggregation",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Prod_Key" ]
+          }
+        }, {
+          "logicalTableSource" : "LTS2 Revenue Facts Aggregate 1",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F11 Revenue Facts Aggregate.Prod_Key" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "COUNT_DISTINCT",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "Actual Unit Price",
+      "description" : "This logical object calculates the Actua Unit Price by dividing Revenue by Units.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 / %2",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Billed Quantity" ]
+        }
+      }
+    }, {
+      "name" : "Target Unit Price",
+      "description" : "This logical object calculates the Target Unit Price by dividing Target Revenue by Target Units.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 / %2",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Revenue", "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Quantity" ]
+        }
+      }
+    }, {
+      "name" : "Avg Order Size",
+      "description" : "This logical object calculates the Actual Average Oder Size by dividing Total Revenue by number of Distinct Orders.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 / %2",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.# of Orders" ]
+        }
+      }
+    }, {
+      "name" : "Target Completion  (Rev Pct)",
+      "description" : "Calculates the completion percentage by dividing Actual revenue by Target Revenue. The result is then multiplied by 100.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 / %2 * 100",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Revenue" ]
+        }
+      }
+    }, {
+      "name" : "---------- Dynamic Time Level ---------------------",
+      "description" : "Header object, dummy not to be used in any queries",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "1"
+        }
+      }
+    }, {
+      "name" : "Period Ago Revenue",
+      "description" : "Shows the period Ago Revenue. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return Day Ago, if month then month ago...",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " AGO(%1, 1)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue" ]
+        }
+      }
+    }, {
+      "name" : "Revenue Variation to Last Period",
+      "description" : "Shows the variation between current period and period Ago Revenu. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return variation to Day Ago, if month then variation to month ago...",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 - %2",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Period Ago Revenue" ]
+        }
+      }
+    }, {
+      "name" : "Revenue Pct Var. to Last Period",
+      "description" : "Shows the percentage variation between current period and period Ago Revenue. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return variation to Day Ago, if month then variation to month ago...",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 / %2 * 100",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue Variation to Last Period", "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Period Ago Revenue" ]
+        }
+      }
+    }, {
+      "name" : "Trailing 3 Periods Revenue",
+      "description" : "Shows the sum of current period plus 2 past Ago Revenue. This calculation is dependent on the time grain that is set in the query by the user. If day object is in the query, then this metric will return trailing 3 Days, if month then trailing 3 months...",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " PeriodRolling(%1, -(2), 0)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue" ]
+        }
+      }
+    }, {
+      "name" : "---------- Fixed Time Level ---------------------------",
+      "description" : "Header object, dummy not to be used in any queries",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "1"
+        }
+      }
+    }, {
+      "name" : "Month Ago Revenue",
+      "description" : "Shows the Month Ago Revenue. This calculation is not dependent on the query time grain and will always return the value as of month ago.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " AGO(%1, %2, 1)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Month" ]
+        }
+      }
+    }, {
+      "name" : "Quarter Ago Revenue",
+      "description" : "Shows the Quarter Ago Revenue. This calculation is not dependent on the query time grain and will always return the value as of Quarter ago.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " AGO(%1, %2, 1)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Quarter" ]
+        }
+      }
+    }, {
+      "name" : "Year Ago Revenue",
+      "description" : "Shows the Year Ago Revenue. This calculation is not dependent on the query time grain and will always return the value as of Year ago.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " AGO(%1, %2, 1)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Year" ]
+        }
+      }
+    }, {
+      "name" : "Quarter to Date Revenue",
+      "description" : "Shows the Quarter to date sum of Revenue. This calculation is not dependent on the query time grain.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " TODATE(%1, %2)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Quarter" ]
+        }
+      }
+    }, {
+      "name" : "----------- Level Based Measures -----------------",
+      "description" : "Header object, dummy not to be used in any queries",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "1"
+        }
+      }
+    }, {
+      "name" : "Full Month Revenue",
+      "description" : "Shows the full month sum of revenue.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue" ]
+        }
+      },
+      "aggregation" : {
+        "rule" : "NONE",
+        "dataIsDense" : false,
+        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D0 Time.Month" ]
+      }
+    }, {
+      "name" : "Full Quarter Revenue",
+      "description" : "Shows the full quarter sum of revenue.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue" ]
+        }
+      },
+      "aggregation" : {
+        "rule" : "NONE",
+        "dataIsDense" : false,
+        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D0 Time.Quarter" ]
+      }
+    }, {
+      "name" : "All Offices Revenue",
+      "description" : "Shows the sum of revenue for all offices.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue" ]
+        }
+      }
+    }, {
+      "name" : "All Products Revenue",
+      "description" : "Shows the sum of revenue for all products.",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue" ]
+        }
+      },
+      "aggregation" : {
+        "rule" : "NONE",
+        "dataIsDense" : false,
+        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D1 Products.Total Products" ]
+      }
+    } ],
+    "logicalTableSources" : [ {
+      "name" : "LTS1 Revenue Facts (Order grain)",
+      "disable" : false,
+      "tableMapping" : {
+        "tables" : [ "physicalTable:Sample App Lite Data.F10 Revenue Facts (Order grain)" ]
+      },
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time.Day Detail", "logicalLevel:SampleApp Lite.D2 Offices.Offices Detail", "logicalLevel:SampleApp Lite.D1 Products.Products Detail", "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Details" ],
+      "combineWithOtherFragments" : false,
+      "enableFragmentSelection" : false,
+      "distinctValues" : false
+    }, {
+      "name" : "LTS2 Revenue Facts Aggregate 1",
+      "disable" : false,
+      "tableMapping" : {
+        "tables" : [ "physicalTable:Sample App Lite Data.F11 Revenue Facts Aggregate" ]
+      },
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time.Month", "logicalLevel:SampleApp Lite.D1 Products.Products Detail", "logicalLevel:SampleApp Lite.D2 Offices.Total Offices", "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Total Orders" ],
+      "combineWithOtherFragments" : false,
+      "enableFragmentSelection" : false,
+      "distinctValues" : false
+    } ],
+    "joins" : [ {
+      "rightTable" : "logicalTable:SampleApp Lite.D0 Time",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D1 Products",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE",
+      "drivingTable" : "logicalTable:SampleApp Lite.D1 Products"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D2 Offices",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D3 Orders (Facts Attributes)",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    } ]
+  }
+}

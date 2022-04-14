@@ -1,0 +1,34 @@
+{
+  "presentationTable" : {
+    "name" : "Base Facts",
+    "description" : "This folder contains metrics like Revenue, Billed Qty, with different types of aggregation.",
+    "presentationColumns" : [ {
+      "name" : "Revenue",
+      "description" : "Returns the Revenue from the Revenue Facts table with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue"
+    }, {
+      "name" : "Billed Quantity",
+      "description" : "Returns the Billed Quantity from the Revenue Facts table with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Billed Quantity"
+    }, {
+      "name" : "Discount Amount",
+      "description" : "Returns the Discount Amount from the Revenue Facts table with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Discount Amount"
+    }, {
+      "name" : "Target Revenue",
+      "description" : "Returns the Target Revenue from the Target Facts table, with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Revenue"
+    }, {
+      "name" : "Target Quantity",
+      "description" : "Returns the Target Quantity from the Target Facts table with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Quantity"
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIAdministrator",
+      "access" : "READ"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

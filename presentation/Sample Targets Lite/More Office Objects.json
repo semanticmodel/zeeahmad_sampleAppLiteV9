@@ -1,0 +1,27 @@
+{
+  "presentationTable" : {
+    "name" : "More Office Objects",
+    "description" : "->\r\nThis folder contains additional Office attributes.",
+    "presentationColumns" : [ {
+      "name" : "Office Key",
+      "description" : "Office Key is an integer that uniquely identifies each record in the Offices dimension table.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D2 Offices.Office Key"
+    }, {
+      "name" : "Org Key",
+      "description" : "Surrogate key for the Organization objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D2 Offices.Org Key"
+    }, {
+      "name" : "Dept Key",
+      "description" : "Surrogate key for the Department objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D2 Offices.Dept Key"
+    }, {
+      "name" : "Company Key",
+      "description" : "Surrogate key for the Company objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D2 Offices.Company Key"
+    }, {
+      "name" : "Office Sequence",
+      "description" : "This column returns the Office sequence from the Offices Dimension, the office sequence is used to logically sort the Office object values.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D2 Offices.Office Sequence"
+    } ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "businessModel" : {
+    "name" : "SampleApp Lite",
+    "description" : "SampleAppLite Business Model. This Business model is a minimal contruct to allow users to check that installation went through. To access a set of Samples that fully illustrate OBIEE 11g modeling capabilities, refer to the full SampleApp set freely availabe on OTN(Oracle Technology Network), OBIEE page.",
+    "disable" : false
+  }
+}

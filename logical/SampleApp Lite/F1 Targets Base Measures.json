@@ -1,0 +1,70 @@
+{
+  "logicalTable" : {
+    "name" : "F1 Targets Base Measures",
+    "description" : "Targets Logical fact table. This is a different table from the Revenue fact table, with a different grain than revenue (no order level grain).",
+    "type" : "FACT",
+    "logicalColumns" : [ {
+      "name" : "Target Revenue",
+      "description" : "Returns the Target Revenue from the Target Facts table, with a Sum aggregation",
+      "dataType" : "DOUBLE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Targets",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F20 Targets Facts.Revenue" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "SUM",
+        "dataIsDense" : false
+      }
+    }, {
+      "name" : "Target Quantity",
+      "description" : "Returns the Target Quantity from the Target Facts table with a Sum aggregation",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Targets",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F20 Targets Facts.Units" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "SUM",
+        "dataIsDense" : false
+      }
+    } ],
+    "logicalTableSources" : [ {
+      "name" : "LTS1 Targets",
+      "description" : "\"1 - Sample App\".\"D2 Offices\".\"D1k  Office Key\" <19",
+      "disable" : false,
+      "tableMapping" : {
+        "tables" : [ "physicalTable:Sample App Lite Data.F20 Targets Facts" ]
+      },
+      "combineWithOtherFragments" : false,
+      "enableFragmentSelection" : false,
+      "distinctValues" : false
+    } ],
+    "joins" : [ {
+      "rightTable" : "logicalTable:SampleApp Lite.D2 Offices",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D0 Time",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D1 Products",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    } ]
+  }
+}

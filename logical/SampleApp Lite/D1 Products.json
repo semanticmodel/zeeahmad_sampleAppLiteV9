@@ -1,0 +1,214 @@
+{
+  "logicalTable" : {
+    "name" : "D1 Products",
+    "description" : "This logical table maps to the physical Products Dimension table with various attributes like Product Name, Brand, Type, LOBr and so on.",
+    "type" : "DIMENSION",
+    "primaryKey" : [ "Product Number" ],
+    "logicalColumns" : [ {
+      "name" : "Product Number",
+      "description" : "Product Key is an integer that uniquely identifies each record in the Product dimension table.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Prod_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products Detail"
+    }, {
+      "name" : "Product",
+      "description" : "Returns the product description from the Product dimension. This column is logically sorted by BIEE server according to the Product Sequence column value, and is filtered by BIEE server using the Product Number column value. Naturally drills into Office Column.",
+      "dataType" : "VARCHAR",
+      "sortBy" : "Product Sequence",
+      "descriptorColumn" : "Product Number",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Prod_Dsc" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products Detail"
+    }, {
+      "name" : "Product Type",
+      "description" : "Returns the Product Type description from the Product dimension. This column is logically filtered by BIEE server using the Product Type Key column value.  Naturally drills into Product Column.",
+      "dataType" : "VARCHAR",
+      "descriptorColumn" : "Product Type Key",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Type" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products Type"
+    }, {
+      "name" : "Product Type Key",
+      "description" : "Physical surrogate key for the Product Type objects.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Type_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products LOB"
+    }, {
+      "name" : "LOB",
+      "description" : "Returns the Product LOB description from the Product dimension. This column is logically filtered by BIEE server using the Product LOB Key column value. Naturally drills into Product Type Column.",
+      "dataType" : "VARCHAR",
+      "descriptorColumn" : "LOB Key",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.LOB" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products LOB"
+    }, {
+      "name" : "LOB Key",
+      "description" : "Physical surrogate key for the LOB objects.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.LOB_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products LOB"
+    }, {
+      "name" : "Brand",
+      "description" : "Returns the Product's brand description from the Product dimension. This column is logically filtered by BIEE server using the Brand Key column value. Naturally drills into LOB Column.",
+      "dataType" : "VARCHAR",
+      "descriptorColumn" : "Brand Key",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Brand" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Products Brand"
+    }, {
+      "name" : "Brand Key",
+      "description" : "Surrogate key for the Brand objects.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Brand_Key" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Product Sequence",
+      "description" : "Returns the product's sequence number from the Product Dimension. It is used to logically sort the Product object values",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Products",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D10 Product.Sequence" ]
+          }
+        } ]
+      }
+    } ],
+    "logicalTableSources" : [ {
+      "name" : "LTS1 Products",
+      "disable" : false,
+      "tableMapping" : {
+        "tables" : [ "physicalTable:Sample App Lite Data.D10 Product" ]
+      },
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D1 Products.Products Detail" ],
+      "combineWithOtherFragments" : false,
+      "enableFragmentSelection" : false,
+      "distinctValues" : false
+    } ],
+    "hierarchyType" : "LEVEL_BASED",
+    "levelBasedHierarchy" : {
+      "defaultRootLevel" : "Total Products",
+      "ragged" : false,
+      "skipped" : false,
+      "logicalLevels" : [ {
+        "name" : "Total Products",
+        "numberOfElements" : 1,
+        "grandTotalLevel" : true,
+        "disableAggregateToHigherLevel" : false
+      }, {
+        "name" : "Products Brand",
+        "numberOfElements" : 4,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Brand" ],
+        "displayKey" : "Brand"
+      }, {
+        "name" : "Products LOB",
+        "numberOfElements" : 6,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "LOB" ],
+        "displayKey" : "LOB"
+      }, {
+        "name" : "Products Type",
+        "numberOfElements" : 9,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Product Type" ],
+        "displayKey" : "Product Type"
+      }, {
+        "name" : "Products Detail",
+        "numberOfElements" : 15,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Product Number" ],
+        "displayKey" : "Product",
+        "additionalKeys" : [ [ "Product" ] ],
+        "preferredDrillPath" : [ "logicalLevel:SampleApp Lite.D2 Offices.Offices Detail" ]
+      } ],
+      "logicalHierarchies" : [ {
+        "name" : "H1 Products [branch at level 'Products Type']",
+        "description" : "Product Level Based Dimension Hierarchy.This hierarchy has a preferred drill path at its most detailed level, that points to Offices Hierarchy.",
+        "levels" : [ "Total Products", "Products Brand", "Products LOB", "Products Type", "Products Detail" ]
+      } ]
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "logicalTable" : {
+    "name" : "D3 Orders (Facts Attributes)",
+    "description" : "This logical table contains the attribute columns that are present in the Revenue fact table which are not measure columns but can be used as attributes in the report. \r\nAll the columns in this table are physically mapped to columns in the Revenue fact table, or are derived calculations from these objects.",
+    "type" : "DIMENSION",
+    "primaryKey" : [ "Order Number" ],
+    "logicalColumns" : [ {
+      "name" : "Order Number",
+      "description" : "Returns the Oder Number from the Revenue Facts table",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Number" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Order Details"
+    }, {
+      "name" : "Order Status",
+      "description" : "Returns the Oder Status value from the Revenue Facts table.  Naturally drills into Orders Number Column.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Status" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Order Type",
+      "description" : "Returns the Oder Type value from the Revenue Facts table. Naturally drills into Orders Status Column.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Type" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Order Type"
+    }, {
+      "name" : "Order Size Bin",
+      "description" : "This is a logical calculation object that buckets the order by their size (revenue per order). The calculation is done on the fly by OBIEE server and results in 5 buckets.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : " CASE  WHEN %1 < 1000 THEN 'Below 1k' WHEN %1 < 2000 THEN 'Between 1k and 2k' WHEN %1 < 3000 THEN 'Between 2k and 3k' WHEN %1 < 5000 THEN 'Between 3k and 5k' ELSE 'Over 5k' END ",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Revenue" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Order to Bill Days",
+      "description" : "This is a logical calculation object that computes for ech order, the number of days between order date and bill date.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " TIMESTAMPDIFF( SQL_TSI_DAY , %1, %2)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Date", "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Date" ]
+        }
+      }
+    }, {
+      "name" : "Order to Bill Days Bin",
+      "description" : "This is a logical calculation object that buckets each order into a group, based on the number of days between order date and bill date. The calculation is done on the fly by BIEE server.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " CASE  WHEN %1 < 10 THEN 'Below 10' WHEN %1 < 15 THEN 'Between 10 and 15' WHEN %1 < 20 THEN 'Between 15 and 20' ELSE 'Over 20' END ",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order to Bill Days" ]
+        }
+      }
+    }, {
+      "name" : "Order Date",
+      "description" : "Returns the Oder Date value from the Revenue Facts table. This field is of type Date.",
+      "dataType" : "DATE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Day_Dt" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Order Month",
+      "description" : "Extracts the month out of the the Oder Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : " EXTRACT( MONTH  FROM %1)",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Day_Dt" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Order Year",
+      "description" : "Extracts the year out of the the Oder Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : " EXTRACT( YEAR  FROM %1)",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Day_Dt" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Billed Date",
+      "description" : "Returns the Oder Bill Date value from the Revenue Facts table. This field is of type Date.",
+      "dataType" : "DATE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Bill_Day_Dt" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Billed Month",
+      "description" : "Extracts the month out of the the Oder Bill Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " EXTRACT( MONTH  FROM %1)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Date" ]
+        }
+      }
+    }, {
+      "name" : "Billed Year",
+      "description" : "Extracts the year out of the the Oder Bill Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : " EXTRACT( YEAR  FROM %1)",
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Date" ]
+        }
+      }
+    } ],
+    "logicalTableSources" : [ {
+      "name" : "LTS1 Revenue Facts (Order grain)",
+      "disable" : false,
+      "tableMapping" : {
+        "tables" : [ "physicalTable:Sample App Lite Data.F10 Revenue Facts (Order grain)" ]
+      },
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Details" ],
+      "combineWithOtherFragments" : false,
+      "enableFragmentSelection" : false,
+      "distinctValues" : false
+    } ],
+    "hierarchyType" : "LEVEL_BASED",
+    "levelBasedHierarchy" : {
+      "defaultRootLevel" : "Total Orders",
+      "ragged" : false,
+      "skipped" : true,
+      "logicalLevels" : [ {
+        "name" : "Total Orders",
+        "numberOfElements" : 1,
+        "grandTotalLevel" : true,
+        "disableAggregateToHigherLevel" : false
+      }, {
+        "name" : "Order Type",
+        "numberOfElements" : 1,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Order Type" ],
+        "displayKey" : "Order Type"
+      }, {
+        "name" : "Order Details",
+        "numberOfElements" : 1,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Order Number" ],
+        "displayKey" : "Order Number"
+      } ],
+      "logicalHierarchies" : [ {
+        "name" : "H3 Orders [branch at level 'Order Type']",
+        "description" : "Orders Level Based Dimension Hierarchy ",
+        "levels" : [ "Total Orders", "Order Type", "Order Details" ]
+      } ]
+    }
+  }
+}

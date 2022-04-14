@@ -1,0 +1,23 @@
+{
+  "presentationTable" : {
+    "name" : "More Product Objects",
+    "description" : "->\r\nThis folder contains additional Product attributes.",
+    "presentationColumns" : [ {
+      "name" : "Product Type Key",
+      "description" : "Physical surrogate key for the Product Type objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Product Type Key"
+    }, {
+      "name" : "LOB Key",
+      "description" : "Physical surrogate key for the LOB objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.LOB Key"
+    }, {
+      "name" : "Brand Key",
+      "description" : "Surrogate key for the Brand objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Brand Key"
+    }, {
+      "name" : "Product Sequence",
+      "description" : "Returns the product's sequence number from the Product Dimension. It is used to logically sort the Product object values",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Product Sequence"
+    } ]
+  }
+}

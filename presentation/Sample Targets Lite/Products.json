@@ -1,0 +1,72 @@
+{
+  "presentationTable" : {
+    "name" : "Products",
+    "description" : "Product dimension objects and attributes",
+    "presentationColumns" : [ {
+      "name" : "Product",
+      "description" : "Returns the product description from the Product dimension. This column is logically sorted by BIEE server according to the Product Sequence column value, and is filtered by BIEE server using the Product Number column value. Naturally drills into Office Column.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Product"
+    }, {
+      "name" : "Product Type",
+      "description" : "Returns the Product Type description from the Product dimension. This column is logically filtered by BIEE server using the Product Type Key column value.  Naturally drills into Product Column.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Product Type"
+    }, {
+      "name" : "LOB",
+      "description" : "Returns the Product LOB description from the Product dimension. This column is logically filtered by BIEE server using the Product LOB Key column value. Naturally drills into Product Type Column.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.LOB"
+    }, {
+      "name" : "Brand",
+      "description" : "Returns the Product's brand description from the Product dimension. This column is logically filtered by BIEE server using the Brand Key column value. Naturally drills into LOB Column.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Brand"
+    }, {
+      "name" : "Product Number",
+      "description" : "Product Key is an integer that uniquely identifies each record in the Product dimension table.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Product Number"
+    }, {
+      "name" : "Brand Key",
+      "description" : "Surrogate key for the Brand objects.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Brand Key"
+    }, {
+      "name" : "Product Sequence",
+      "description" : "Returns the product's sequence number from the Product Dimension. It is used to logically sort the Product object values",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D1 Products.Product Sequence"
+    } ],
+    "hierarchies" : [ {
+      "name" : "Products Hierarchy",
+      "sourceLogicalTable" : "logicalTable:SampleApp Lite.D1 Products",
+      "alternateNames" : [ "H1 Products" ],
+      "levels" : [ {
+        "name" : "All Products",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D1 Products.Total Products",
+        "alternateNames" : [ "Products Total" ]
+      }, {
+        "name" : "Brands",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D1 Products.Products Brand",
+        "displayColumn" : "presentationColumn:Sample Targets Lite.Products.Brand",
+        "alternateNames" : [ "Products Brand" ]
+      }, {
+        "name" : "LOBs",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D1 Products.Products LOB",
+        "displayColumn" : "presentationColumn:Sample Targets Lite.Products.LOB",
+        "alternateNames" : [ "Products LOB" ]
+      }, {
+        "name" : "Product Types",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D1 Products.Products Type",
+        "displayColumn" : "presentationColumn:Sample Targets Lite.Products.Product Type",
+        "alternateNames" : [ "Products Type" ]
+      }, {
+        "name" : "Products",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D1 Products.Products Detail",
+        "displayColumn" : "presentationColumn:Sample Targets Lite.Products.Product",
+        "alternateNames" : [ "Products Detail" ]
+      } ]
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIAdministrator",
+      "access" : "READ"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

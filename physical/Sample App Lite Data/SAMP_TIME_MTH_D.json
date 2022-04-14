@@ -1,0 +1,123 @@
+{
+  "physicalTable" : {
+    "name" : "SAMP_TIME_MTH_D",
+    "description" : "Time (Quarter Grain) Dimension Physical table. This table is not directly used by the logical model, it is accessed via the aliases setup in the physical diagram. The database is of XML type, the setup of this physical table leverages the value of an RPD variable : BI_EE_HOME (see the XML tab in this dialog box). This variable needs to be correctly set in order for the server to connect to the files.",
+    "sourceType" : "TABLE",
+    "physicalColumns" : [ {
+      "name" : "Beg_of_Qtr_Wid",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Cal_Half",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Cal_Month",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Cal_Qtr",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Cal_Year",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Days_in_Mth",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Days_in_Qtr",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Fscl_Half",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Fscl_Month",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Fscl_Qtr",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Fscl_Year",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Julian_Month_Num",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Julian_Qtr_Num",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Month_Ago_Wid",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Per_Name_Half",
+      "dataType" : "VARCHAR",
+      "length" : 8,
+      "nullable" : false
+    }, {
+      "name" : "Per_Name_Month",
+      "dataType" : "VARCHAR",
+      "length" : 9,
+      "nullable" : false
+    }, {
+      "name" : "Per_Name_Qtr",
+      "dataType" : "VARCHAR",
+      "length" : 7,
+      "nullable" : false
+    }, {
+      "name" : "Per_Name_Year",
+      "dataType" : "VARCHAR",
+      "length" : 4,
+      "nullable" : false
+    }, {
+      "name" : "Quarter_Ago_Wid",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Mth_Key",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Year_Ago_Wid",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Loaded",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    } ],
+    "additionalKeys" : [ [ "Mth_Key" ] ],
+    "caching" : {
+      "enable" : true,
+      "expiryTime" : 0
+    }
+  }
+}

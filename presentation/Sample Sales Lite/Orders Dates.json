@@ -1,0 +1,34 @@
+{
+  "presentationTable" : {
+    "name" : "Orders Dates",
+    "description" : "->\r\nThis folder contains additional Orders Dates attributes like Order Date, Billed Date and so on.",
+    "presentationColumns" : [ {
+      "name" : "Order Date",
+      "description" : "Returns the Oder Date value from the Revenue Facts table. This field is of type Date.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Date"
+    }, {
+      "name" : "Order Month",
+      "description" : "Extracts the month out of the the Oder Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Month"
+    }, {
+      "name" : "Billed Date",
+      "description" : "Returns the Oder Bill Date value from the Revenue Facts table. This field is of type Date.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Date"
+    }, {
+      "name" : "Billed Month",
+      "description" : "Extracts the month out of the the Oder Bill Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Month"
+    }, {
+      "name" : "Billed Year",
+      "description" : "Extracts the year out of the the Oder Bill Date value from the Revenue Facts table. This information is extracted by BIEE server.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Year"
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIAdministrator",
+      "access" : "READ"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

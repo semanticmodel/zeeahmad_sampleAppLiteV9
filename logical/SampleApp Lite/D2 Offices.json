@@ -1,0 +1,214 @@
+{
+  "logicalTable" : {
+    "name" : "D2 Offices",
+    "description" : "This logical table maps to the physical Office Dimension table with various attributes.",
+    "type" : "DIMENSION",
+    "primaryKey" : [ "Office Key" ],
+    "logicalColumns" : [ {
+      "name" : "Office",
+      "description" : "Returns the Office description from the Office dimension. This column is logically sorted by BIEE server according to the Office Sequence column value.  Naturally drills into Orders Status Column.",
+      "dataType" : "VARCHAR",
+      "sortBy" : "Office Sequence",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Office_Dsc" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Detail"
+    }, {
+      "name" : "Office Key",
+      "description" : "Office Key is an integer that uniquely identifies each record in the Offices dimension table.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Office_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Detail"
+    }, {
+      "name" : "Department",
+      "description" : "Returns the Department description from the Office dimension. Naturally drills into Office Column.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Department" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Department"
+    }, {
+      "name" : "Dept Key",
+      "description" : "Surrogate key for the Department objects.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Dept_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Department"
+    }, {
+      "name" : "Organization",
+      "description" : "Returns the Organization description from the Office dimension.  Naturally drills into Department Column.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Organization" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Organization"
+    }, {
+      "name" : "Org Key",
+      "description" : "Surrogate key for the Organization objects.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Org_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Organization"
+    }, {
+      "name" : "Company",
+      "description" : "Returns the Company description from the Office dimension.  Naturally drills into Organization Column.",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Company" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Company"
+    }, {
+      "name" : "Company Key",
+      "description" : "Surrogate key for the Company objects.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Company_Key" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Offices Company"
+    }, {
+      "name" : "Office Sequence",
+      "description" : "This column returns the Office sequence from the Offices Dimension, the office sequence is used to logically sort the Office object values.",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Sequence" ]
+          }
+        } ]
+      }
+    } ],
+    "logicalTableSources" : [ {
+      "name" : "LTS1 Offices",
+      "disable" : false,
+      "tableMapping" : {
+        "tables" : [ "physicalTable:Sample App Lite Data.D20 Offices" ]
+      },
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D2 Offices.Offices Detail" ],
+      "combineWithOtherFragments" : false,
+      "enableFragmentSelection" : false,
+      "distinctValues" : false
+    } ],
+    "hierarchyType" : "LEVEL_BASED",
+    "levelBasedHierarchy" : {
+      "defaultRootLevel" : "Total Offices",
+      "ragged" : false,
+      "skipped" : false,
+      "logicalLevels" : [ {
+        "name" : "Total Offices",
+        "numberOfElements" : 1,
+        "grandTotalLevel" : true,
+        "disableAggregateToHigherLevel" : false
+      }, {
+        "name" : "Offices Company",
+        "numberOfElements" : 3,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Company Key" ],
+        "displayKey" : "Company",
+        "additionalKeys" : [ [ "Company" ] ]
+      }, {
+        "name" : "Offices Organization",
+        "numberOfElements" : 6,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Org Key" ],
+        "displayKey" : "Organization",
+        "additionalKeys" : [ [ "Organization" ] ]
+      }, {
+        "name" : "Offices Department",
+        "numberOfElements" : 10,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Dept Key" ],
+        "displayKey" : "Department",
+        "additionalKeys" : [ [ "Department" ] ]
+      }, {
+        "name" : "Offices Detail",
+        "numberOfElements" : 20,
+        "grandTotalLevel" : false,
+        "disableAggregateToHigherLevel" : false,
+        "primaryKey" : [ "Office Key" ],
+        "displayKey" : "Office",
+        "additionalKeys" : [ [ "Office" ] ],
+        "preferredDrillPath" : [ "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Type" ]
+      } ],
+      "logicalHierarchies" : [ {
+        "name" : "H2 Offices [branch at level 'Offices Department']",
+        "description" : "Office Level Based Dimension Hierarchy. This hierarchy has a preferred drill path at its most detailed level, that points to Orders Hierarchy.",
+        "levels" : [ "Total Offices", "Offices Company", "Offices Organization", "Offices Department", "Offices Detail" ]
+      } ]
+    }
+  }
+}

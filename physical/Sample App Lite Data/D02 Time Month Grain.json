@@ -1,0 +1,20 @@
+{
+  "physicalTable": {
+    "name": "D02 Time Month Grain",
+    "sourceTable": "physicalTable:Sample App Lite Data.SAMP_TIME_MTH_D",
+    "caching": {
+      "enable": true
+    },
+    "additionalKeys": [
+      [
+        "Mth_Key"
+      ],
+      [
+        "Cal_Year"
+      ],
+      [
+        "Month_Ago_Wid"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "presentationTable" : {
+    "name" : "Base Facts",
+    "description" : "This folder contains Target Fact Metrics with different types of aggregations.",
+    "presentationColumns" : [ {
+      "name" : "Target Revenue",
+      "description" : "Returns the Target Revenue from the Target Facts table, with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Revenue"
+    }, {
+      "name" : "Target Quantity",
+      "description" : "Returns the Target Quantity from the Target Facts table with a Sum aggregation",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F1 Targets Base Measures.Target Quantity"
+    }, {
+      "name" : "Target Unit Price",
+      "description" : "This logical object calculates the Target Unit Price by dividing Target Revenue by Target Units.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Target Unit Price"
+    }, {
+      "name" : "Target Completion  (Rev Pct)",
+      "description" : "Calculates the completion percentage by dividing Actual revenue by Target Revenue. The result is then multiplied by 100.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Target Completion  (Rev Pct)"
+    }, {
+      "name" : "Actual Unit Price",
+      "description" : "This logical object calculates the Actua Unit Price by dividing Revenue by Units.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Actual Unit Price"
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIAdministrator",
+      "access" : "READ"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

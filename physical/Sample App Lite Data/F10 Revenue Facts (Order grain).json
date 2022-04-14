@@ -1,0 +1,48 @@
+{
+  "physicalTable": {
+    "name": "F10 Revenue Facts (Order grain)",
+    "description": "Alias to the Revenue Facts Physical table. Aliasing allows multiple representation of the same physical table source in the RPD physical model. It also helps maintenance and lineage.",
+    "sourceTable": "physicalTable:Sample App Lite Data.SAMP_REVENUE_F",
+    "caching": {
+      "enable": true
+    },
+    "joins": [ {
+        "rightTable": "physicalTable:Sample App Lite Data.D10 Product",
+        "joinConditions": [ {
+            "leftColumn": "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Prod_Key",
+            "rightColumn": "physicalColumn:Sample App Lite Data.D10 Product.Prod_Key"
+          }
+        ]
+      },
+      {
+        "rightTable": "physicalTable:Sample App Lite Data.D20 Offices",
+        "joinConditions": [ {
+            "leftColumn": "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Office_Key",
+            "rightColumn": "physicalColumn:Sample App Lite Data.D20 Offices.Office_Key"
+          }
+        ]
+      },
+      {
+        "rightTable": "physicalTable:Sample App Lite Data.D01 Time Day Grain",
+        "joinConditions": [ {
+            "leftColumn": "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Bill_Day_Dt",
+            "rightColumn": "physicalColumn:Sample App Lite Data.D01 Time Day Grain.Calendar_Date"
+          }
+        ]
+      },
+      {
+        "rightTable": "physicalTable:Sample App Lite Data.D02 Time Month Grain",
+        "joinConditions": [ {
+            "leftColumn": "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Bill_Mth_Key",
+            "rightColumn": "physicalColumn:Sample App Lite Data.D02 Time Month Grain.Mth_Key"
+          }
+        ]
+      }
+    ],
+    "additionalKeys": [
+      [
+        "Order_Number"
+      ]
+    ]
+  }
+}

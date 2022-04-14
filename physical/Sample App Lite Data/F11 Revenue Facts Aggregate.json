@@ -1,0 +1,27 @@
+{
+  "physicalTable": {
+    "name": "F11 Revenue Facts Aggregate",
+    "description": "Alias to the Revenue Aggregated 1 Facts Physical table.",
+    "sourceTable": "physicalTable:Sample App Lite Data.SAMP_REVENUE_A",
+    "caching": {
+      "enable": true
+    },
+    "joins": [ {
+        "rightTable": "physicalTable:Sample App Lite Data.D10 Product",
+        "joinConditions": [ {
+            "leftColumn": "physicalColumn:Sample App Lite Data.F11 Revenue Facts Aggregate.Prod_Key",
+            "rightColumn": "physicalColumn:Sample App Lite Data.D10 Product.Prod_Key"
+          }
+        ]
+      },
+      {
+        "rightTable": "physicalTable:Sample App Lite Data.D02 Time Month Grain",
+        "joinConditions": [ {
+            "leftColumn": "physicalColumn:Sample App Lite Data.F11 Revenue Facts Aggregate.Bill_Mth_Key",
+            "rightColumn": "physicalColumn:Sample App Lite Data.D02 Time Month Grain.Mth_Key"
+          }
+        ]
+      }
+    ]
+  }
+}

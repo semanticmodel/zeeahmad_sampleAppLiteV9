@@ -1,0 +1,26 @@
+{
+  "subjectArea" : {
+    "name" : "Sample Targets Lite",
+    "description" : "Sample Subject Area for 11g Lite Sample Application (XML files sourced only).",
+    "sourceBusinessModel" : "businessModel:SampleApp Lite",
+    "implicitFactColumn" : "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue",
+    "alternateNames" : [ "Sample App Lite#1" ],
+    "tableOrder" : [ {
+      "name" : "presentationTable:Sample Targets Lite.Time"
+    }, {
+      "name" : "presentationTable:Sample Targets Lite.More Time Objects"
+    }, {
+      "name" : "presentationTable:Sample Targets Lite.Products"
+    }, {
+      "name" : "presentationTable:Sample Targets Lite.Offices"
+    }, {
+      "name" : "presentationTable:Sample Targets Lite.More Office Objects"
+    }, {
+      "name" : "presentationTable:Sample Targets Lite.Base Facts"
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

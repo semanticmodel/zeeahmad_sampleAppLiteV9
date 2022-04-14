@@ -1,0 +1,56 @@
+{
+  "presentationTable" : {
+    "name" : "Orders",
+    "description" : "Orders attribute objects",
+    "presentationColumns" : [ {
+      "name" : "Order Number",
+      "description" : "Returns the Oder Number from the Revenue Facts table",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Number"
+    }, {
+      "name" : "Order Status",
+      "description" : "Returns the Oder Status value from the Revenue Facts table.  Naturally drills into Orders Number Column.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Status"
+    }, {
+      "name" : "Order Type",
+      "description" : "Returns the Oder Type value from the Revenue Facts table. Naturally drills into Orders Status Column.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Type"
+    }, {
+      "name" : "Order Size Bin",
+      "description" : "This is a logical calculation object that buckets the order by their size (revenue per order). The calculation is done on the fly by OBIEE server and results in 5 buckets.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order Size Bin"
+    }, {
+      "name" : "Order to Bill Days",
+      "description" : "This is a logical calculation object that computes for ech order, the number of days between order date and bill date.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order to Bill Days"
+    }, {
+      "name" : "Order to Bill Days Bin",
+      "description" : "This is a logical calculation object that buckets each order into a group, based on the number of days between order date and bill date. The calculation is done on the fly by BIEE server.",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Order to Bill Days Bin"
+    } ],
+    "hierarchies" : [ {
+      "name" : "Orders Hierarchy",
+      "sourceLogicalTable" : "logicalTable:SampleApp Lite.D3 Orders (Facts Attributes)",
+      "alternateNames" : [ "H3 Orders" ],
+      "levels" : [ {
+        "name" : "All Orders",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Total Orders",
+        "alternateNames" : [ "Total Orders" ]
+      }, {
+        "name" : "Order Type",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Type",
+        "displayColumn" : "presentationColumn:Sample Sales Lite.Orders.Order Type"
+      }, {
+        "name" : "Order Details",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Details",
+        "displayColumn" : "presentationColumn:Sample Sales Lite.Orders.Order Number"
+      } ]
+    } ],
+    "permissions" : [ {
+      "accessor" : "role:BIAdministrator",
+      "access" : "READ"
+    }, {
+      "accessor" : "role:BIConsumer",
+      "access" : "WRITE"
+    } ]
+  }
+}

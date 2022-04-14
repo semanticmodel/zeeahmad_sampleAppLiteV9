@@ -1,0 +1,68 @@
+{
+  "physicalTable" : {
+    "name" : "SAMP_PRODUCTS_D",
+    "description" : "PRODUCTS Dimension Physical table. This table is not directly used by the logical model, it is accessed via the aliases setup in the physical diagram. The database is of XML type, the setup of this physical table leverages the value of an RPD variable : BI_EE_HOME (see the XML tab in this dialog box). This variable needs to be correctly set in order for the server to connect to the files.",
+    "sourceType" : "TABLE",
+    "physicalColumns" : [ {
+      "name" : "Brand",
+      "dataType" : "VARCHAR",
+      "length" : 25,
+      "nullable" : false
+    }, {
+      "name" : "Attribute_2",
+      "dataType" : "VARCHAR",
+      "length" : 30,
+      "nullable" : false
+    }, {
+      "name" : "LOB",
+      "dataType" : "VARCHAR",
+      "length" : 25,
+      "nullable" : false
+    }, {
+      "name" : "Prod_Dsc",
+      "dataType" : "VARCHAR",
+      "length" : 25,
+      "nullable" : false
+    }, {
+      "name" : "Prod_Key",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Sequence",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Attribute_1",
+      "dataType" : "VARCHAR",
+      "length" : 30,
+      "nullable" : false
+    }, {
+      "name" : "Type",
+      "dataType" : "VARCHAR",
+      "length" : 25,
+      "nullable" : false
+    }, {
+      "name" : "Brand_Key",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "Type_Key",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    }, {
+      "name" : "LOB_Key",
+      "dataType" : "INT",
+      "length" : 0,
+      "nullable" : false
+    } ],
+    "additionalKeys" : [ [ "Prod_Key" ] ],
+    "caching" : {
+      "enable" : true,
+      "expiryTime" : 0
+    }
+  }
+}
