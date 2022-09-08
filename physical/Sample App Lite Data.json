@@ -17,6 +17,21 @@
         "bulkInsertBufferSize" : 10485760,
         "transactionBoundary" : 0
       }
+    }, {
+      "name" : "SampleApp_Lite_Xml",
+      "description" : " Duplicate Connection",
+      "connection" : "'system'.'PRIVATE READ ONLY SMConnection'",
+      "remoteConnection" : false,
+      "maxConnections" : 10,
+      "requiresFullyQualifedTableNames" : false,
+      "connectionTimeoutUnit" : "WHEN_QUERY_COMPLETES",
+      "multithreaded" : false,
+      "supportParams" : false,
+      "writeBackConfig" : {
+        "dbSupportsUnicode" : false,
+        "bulkInsertBufferSize" : 10485760,
+        "transactionBoundary" : 0
+      }
     } ],
     "virtualPrivateDatabase" : false,
     "crmMetadataTables" : false,
