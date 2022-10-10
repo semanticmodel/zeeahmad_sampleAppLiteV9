@@ -65,6 +65,11 @@
       "rightTable" : "logicalTable:SampleApp Lite.D1 Products",
       "joinType" : "INNER",
       "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D20 Offices",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ONE",
+      "drivingTable" : "None"
     } ]
   }
 }
