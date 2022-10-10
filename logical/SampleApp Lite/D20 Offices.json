@@ -142,6 +142,20 @@
           }
         } ]
       }
+    }, {
+      "name" : "Dept_Key_1",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "D20 Offices",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Dept_Key" ]
+          }
+        } ]
+      }
     } ],
     "logicalTableSources" : [ {
       "name" : "D20 Offices",
