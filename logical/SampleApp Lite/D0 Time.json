@@ -262,6 +262,22 @@
           }
         } ]
       }
+    }, {
+      "name" : "Calendar Date_2",
+      "description" : "Calendar Date uniquely identifies each record in the Time dimension table. \r\nStores the date information in the format MM/DD/YYYY.  Eg :- 11/12/2006",
+      "dataType" : "DATE",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Time Day Grain",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D01 Time Day Grain.Calendar_Date" ]
+          }
+        } ]
+      },
+      "logicalLevel" : "Day Detail"
     } ],
     "logicalTableSources" : [ {
       "name" : "LTS1 Time Day Grain",
