@@ -36,15 +36,6 @@
       } ],
       "joinType" : "INNER",
       "cardinality" : "MANY_TO_ONE"
-    }, {
-      "rightTable" : "physicalTable:Sample App Lite Data.D10 Product_1",
-      "useJoinExpression" : false,
-      "joinConditions" : [ {
-        "leftColumn" : "physicalColumn:Sample App Lite Data.F20 Targets Facts.Prod_Key",
-        "rightColumn" : "physicalColumn:Sample App Lite Data.D10 Product_1.Prod_Key"
-      } ],
-      "joinType" : "INNER",
-      "cardinality" : "MANY_TO_ONE"
     } ]
   }
 }
