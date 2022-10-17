@@ -10,16 +10,9 @@
       "dataType" : "INT",
       "writeable" : false,
       "logicalColumnSource" : {
-        "derivedFrom" : "PHYSICAL_COLUMNS",
-        "physicalMappings" : [ {
-          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
-          "physicalExpression" : {
-            "expressionTemplate" : "%1",
-            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.F10 Revenue Facts (Order grain).Order_Number" ]
-          }
-        } ]
+        "derivedFrom" : "PHYSICAL_COLUMNS"
       },
-      "logicalLevel" : "Order Details"
+      "logicalLevel" : "Total Orders"
     }, {
       "name" : "Order Status",
       "description" : "Returns the Oder Status value from the Revenue Facts table.  Naturally drills into Orders Number Column.",
@@ -174,12 +167,158 @@
           "expressionObjects" : [ "logicalColumn:SampleApp Lite.D3 Orders (Facts Attributes).Billed Date" ]
         }
       }
+    }, {
+      "name" : "Department",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Department" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Organization",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Organization" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Office_Dsc",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Office_Dsc" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Office_Key",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Office_Key" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Company",
+      "dataType" : "VARCHAR",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Company" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Sequence",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Sequence" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Address_Key",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Address_Key" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Company_Key",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Company_Key" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Org_Key",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Org_Key" ]
+          }
+        } ]
+      }
+    }, {
+      "name" : "Dept_Key",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "LTS1 Revenue Facts (Order grain)",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:Sample App Lite Data.D20 Offices.Dept_Key" ]
+          }
+        } ]
+      }
     } ],
     "logicalTableSources" : [ {
       "name" : "LTS1 Revenue Facts (Order grain)",
       "disable" : false,
       "tableMapping" : {
-        "tables" : [ "physicalTable:Sample App Lite Data.F10 Revenue Facts (Order grain)" ]
+        "tables" : [ "physicalTable:Sample App Lite Data.F10 Revenue Facts (Order grain)", "physicalTable:Sample App Lite Data.D20 Offices" ],
+        "logicalTableSourceJoins" : [ {
+          "leftTable" : "physicalTable:Sample App Lite Data.F10 Revenue Facts (Order grain)",
+          "rightTable" : "physicalTable:Sample App Lite Data.D20 Offices",
+          "joinType" : "LEFT_OUTER",
+          "disable" : true
+        } ]
       },
       "dataGranularity" : [ "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Details" ],
       "combineWithOtherFragments" : false,
