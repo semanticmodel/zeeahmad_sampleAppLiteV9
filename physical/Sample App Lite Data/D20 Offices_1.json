@@ -1,0 +1,13 @@
+{
+  "physicalTable" : {
+    "name" : "D20 Offices_1",
+    "description" : "Alias to the Office Dimension Physical table. Aliasing allows multiple representation of the same physical table source in the RPD physical model. It also helps maintenance and lineage.",
+    "sourceTable" : "physicalTable:Sample App Lite Data.SAMP_OFFICES_D",
+    "additionalKeys" : [ [ "Office_Key" ] ],
+    "caching" : {
+      "enable" : true,
+      "expiryTime" : 0
+    },
+    "overrideSourceCacheSetting" : false
+  }
+}
