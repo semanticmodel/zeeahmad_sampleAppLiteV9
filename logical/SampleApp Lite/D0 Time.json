@@ -269,6 +269,13 @@
       "logicalColumnSource" : {
         "derivedFrom" : "PHYSICAL_COLUMNS"
       }
+    }, {
+      "name" : "New Column_2",
+      "dataType" : "UNKNOWN",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS"
+      }
     } ],
     "logicalTableSources" : [ {
       "name" : "LTS1 Time Day Grain",
