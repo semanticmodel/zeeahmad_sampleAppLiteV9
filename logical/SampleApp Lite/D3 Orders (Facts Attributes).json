@@ -307,6 +307,13 @@
           }
         } ]
       }
+    }, {
+      "name" : "New Column_1",
+      "dataType" : "UNKNOWN",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS"
+      }
     } ],
     "logicalTableSources" : [ {
       "name" : "LTS1 Revenue Facts (Order grain)",
