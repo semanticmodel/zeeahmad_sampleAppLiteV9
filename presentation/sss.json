@@ -1,6 +1,7 @@
 {
   "subjectArea" : {
     "name" : "sss",
+    "description" : "ccc",
     "sourceBusinessModel" : "businessModel:bus123"
   }
 }
