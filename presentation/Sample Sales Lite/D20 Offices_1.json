@@ -1,0 +1,39 @@
+{
+  "presentationTable" : {
+    "name" : "D20 Offices_1",
+    "presentationColumns" : [ {
+      "name" : "Department",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Department"
+    }, {
+      "name" : "Organization",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Organization"
+    }, {
+      "name" : "Office_Dsc",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Office_Dsc"
+    }, {
+      "name" : "Office_Key",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Office_Key"
+    }, {
+      "name" : "Company",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Company"
+    }, {
+      "name" : "Sequence",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Sequence"
+    }, {
+      "name" : "Address_Key",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Address_Key"
+    }, {
+      "name" : "Company_Key",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Company_Key"
+    }, {
+      "name" : "Org_Key",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Org_Key"
+    }, {
+      "name" : "Dept_Key",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Dept_Key"
+    }, {
+      "name" : "Dept_Key_1",
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D20 Offices.Dept_Key_1"
+    } ]
+  }
+}

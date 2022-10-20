@@ -26,6 +26,10 @@
       "name" : "presentationTable:Sample Sales Lite.Calculated Facts"
     }, {
       "name" : "presentationTable:Sample Sales Lite.Time Series"
+    }, {
+      "name" : "presentationTable:Sample Sales Lite.D20 Offices"
+    }, {
+      "name" : "presentationTable:Sample Sales Lite.D20 Offices_1"
     } ],
     "permissions" : [ {
       "accessor" : "role:BIConsumer",
