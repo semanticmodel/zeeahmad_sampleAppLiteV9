@@ -420,6 +420,11 @@
       "rightTable" : "logicalTable:SampleApp Lite.D3 Orders (Facts Attributes)",
       "joinType" : "INNER",
       "cardinality" : "MANY_TO_ZERO_OR_ONE"
+    }, {
+      "rightTable" : "logicalTable:SampleApp Lite.D20 Offices",
+      "joinType" : "INNER",
+      "cardinality" : "MANY_TO_ONE",
+      "drivingTable" : "None"
     } ]
   }
 }
