@@ -212,7 +212,7 @@
         "displayKey" : "Order Number"
       } ],
       "logicalHierarchies" : [ {
-        "name" : "H3 Orders [branch at level 'Order Type']",
+        "name" : "H3 Orders [branch at level Order Type]",
         "description" : "Orders Level Based Dimension Hierarchy ",
         "levels" : [ "Total Orders", "Order Type", "Order Details" ]
       } ]

@@ -342,7 +342,7 @@
         "chronologicalKey" : [ "Calendar Date" ]
       } ],
       "logicalHierarchies" : [ {
-        "name" : "H0 Time [branch at level 'Week']",
+        "name" : "H0 Time [branch at level Week]",
         "description" : "Time Level Based Dimension Hierarchy ",
         "levels" : [ "Total Time", "Year", "Half", "Quarter", "Month", "Week", "Day Detail" ]
       } ]

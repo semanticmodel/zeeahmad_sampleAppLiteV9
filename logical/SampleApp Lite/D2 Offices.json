@@ -205,7 +205,7 @@
         "preferredDrillPath" : [ "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Type" ]
       } ],
       "logicalHierarchies" : [ {
-        "name" : "H2 Offices [branch at level 'Offices Department']",
+        "name" : "H2 Offices [branch at level Offices Department]",
         "description" : "Office Level Based Dimension Hierarchy. This hierarchy has a preferred drill path at its most detailed level, that points to Orders Hierarchy.",
         "levels" : [ "Total Offices", "Offices Company", "Offices Organization", "Offices Department", "Offices Detail" ]
       } ]
