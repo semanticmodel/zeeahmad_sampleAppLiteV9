@@ -5,58 +5,58 @@
     "presentationColumns" : [ {
       "name" : "Calendar Date",
       "description" : "Calendar Date uniquely identifies each record in the Time dimension table. \r\nStores the date information in the format MM/DD/YYYY.  Eg :- 11/12/2006",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Calendar Date"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Calendar Date"
     }, {
       "name" : "Per Name Week",
       "description" : "Per Name Week- Stores the week information in the format YYYY Week Number. Eg :- 2005 Week 44",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Per Name Week"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Per Name Week"
     }, {
       "name" : "Per Name Month",
       "description" : "Per Name Month. Stores the month information in the format YYYY / MM. Eg :- 2006 / 11",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Per Name Month"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Per Name Month"
     }, {
       "name" : "Per Name Qtr",
       "description" : "Per Name Qtr. Stores the Quarter information in the format YYYY QQuarterNumber. Eg :- 2005 Q3",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Per Name Qtr"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Per Name Qtr"
     }, {
       "name" : "Per Name Half",
       "description" : "Per Name Half. Stores the Half year information in the format YYYY HYHalfYearNumber. Eg :- 2006 HY2",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Per Name Half"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Per Name Half"
     }, {
       "name" : "Per Name Year",
       "description" : "Per Name Year. Stores the year information in the format YYYY. Eg :- 2006\r\n",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Per Name Year"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Per Name Year"
     } ],
     "hierarchies" : [ {
       "name" : "Time Hierarchy",
-      "sourceLogicalTable" : "logicalTable:SampleApp Lite.D0 Time",
+      "sourceLogicalTable" : "logicalTable:SampleApp Lite.D0 Time2",
       "alternateNames" : [ "H0 Time", "Time Hier" ],
       "levels" : [ {
         "name" : "Total Time",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Total Time"
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Total Time"
       }, {
         "name" : "Year",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Year",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Year",
         "displayColumn" : "presentationColumn:Sample Targets Lite.Time.Per Name Year"
       }, {
         "name" : "Half",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Half",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Half",
         "displayColumn" : "presentationColumn:Sample Targets Lite.Time.Per Name Half"
       }, {
         "name" : "Quarter",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Quarter",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Quarter",
         "displayColumn" : "presentationColumn:Sample Targets Lite.Time.Per Name Qtr"
       }, {
         "name" : "Month",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Month",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Month",
         "displayColumn" : "presentationColumn:Sample Targets Lite.Time.Per Name Month"
       }, {
         "name" : "Week",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Week",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Week",
         "displayColumn" : "presentationColumn:Sample Targets Lite.Time.Per Name Week"
       }, {
         "name" : "Day Detail",
-        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time.Day Detail",
+        "sourceLogicalLevel" : "logicalLevel:SampleApp Lite.D0 Time2.Day Detail",
         "displayColumn" : "presentationColumn:Sample Targets Lite.Time.Calendar Date"
       } ]
     } ],

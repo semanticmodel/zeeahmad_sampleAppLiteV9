@@ -1,6 +1,6 @@
 {
   "logicalTable" : {
-    "name" : "D0 Time",
+    "name" : "D0 Time2",
     "description" : "This logical table maps to the physical Time Dimension tables at Day and Month grains. It federatess 2 distinct physical tables : one at the Day grain level, one at the month level. BIEE server will pick the most appropriate source based on the context of each user query.\r\n\r\n ",
     "type" : "DIMENSION",
     "primaryKey" : [ "Calendar Date" ],
@@ -269,7 +269,7 @@
       "tableMapping" : {
         "tables" : [ "physicalTable:Sample App Lite Data.D01 Time Day Grain" ]
       },
-      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time.Day Detail" ],
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time2.Day Detail" ],
       "combineWithOtherFragments" : false,
       "enableFragmentSelection" : false,
       "distinctValues" : false
@@ -279,7 +279,7 @@
       "tableMapping" : {
         "tables" : [ "physicalTable:Sample App Lite Data.D02 Time Month Grain" ]
       },
-      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time.Month" ],
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time2.Month" ],
       "combineWithOtherFragments" : false,
       "enableFragmentSelection" : false,
       "distinctValues" : false

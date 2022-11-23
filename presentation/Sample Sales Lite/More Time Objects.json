@@ -5,31 +5,31 @@
     "presentationColumns" : [ {
       "name" : "Day Of Week",
       "description" : "Day of Week is an integer and is a value between 1 and 7",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Day Of Week"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Day Of Week"
     }, {
       "name" : "Day Of Month",
       "description" : "Day of Month is an integer and a value between 1 and 31.",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Day Of Month"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Day Of Month"
     }, {
       "name" : "Day Of Year",
       "description" : "Day of Year is an integer and a value between 1 and 366.",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Day Of Year"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Day Of Year"
     }, {
       "name" : "Julian Day Num",
       "description" : "Stores the Julian Day Number as an integer.",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Julian Day Num"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Julian Day Num"
     }, {
       "name" : "Julian Week Num",
       "description" : "Stores the Julian Week Number as an integer.",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Julian Week Num"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Julian Week Num"
     }, {
       "name" : "Julian Month Num",
       "description" : "Stores the Julian Month Number as an integer.",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Julian Month Num"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Julian Month Num"
     }, {
       "name" : "Julian Qtr Num",
       "description" : "Stores the Julian Quarter Number as an integer.",
-      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time.Julian Qtr Num"
+      "sourceLogicalColumn" : "logicalColumn:SampleApp Lite.D0 Time2.Julian Qtr Num"
     } ],
     "permissions" : [ {
       "accessor" : "role:BIAdministrator",

@@ -268,7 +268,7 @@
         "derivedFrom" : "LOGICAL_COLUMNS",
         "logicalExpression" : {
           "expressionTemplate" : " AGO(%1, %2, 1)",
-          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Month" ]
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time2.Month" ]
         }
       }
     }, {
@@ -280,7 +280,7 @@
         "derivedFrom" : "LOGICAL_COLUMNS",
         "logicalExpression" : {
           "expressionTemplate" : " AGO(%1, %2, 1)",
-          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Quarter" ]
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time2.Quarter" ]
         }
       }
     }, {
@@ -292,7 +292,7 @@
         "derivedFrom" : "LOGICAL_COLUMNS",
         "logicalExpression" : {
           "expressionTemplate" : " AGO(%1, %2, 1)",
-          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Year" ]
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time2.Year" ]
         }
       }
     }, {
@@ -304,7 +304,7 @@
         "derivedFrom" : "LOGICAL_COLUMNS",
         "logicalExpression" : {
           "expressionTemplate" : " TODATE(%1, %2)",
-          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time.Quarter" ]
+          "expressionObjects" : [ "logicalColumn:SampleApp Lite.F0 Revenue Base Measures.Revenue", "logicalLevel:SampleApp Lite.D0 Time2.Quarter" ]
         }
       }
     }, {
@@ -333,7 +333,7 @@
       "aggregation" : {
         "rule" : "NONE",
         "dataIsDense" : false,
-        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D0 Time.Month" ]
+        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D0 Time2.Month" ]
       }
     }, {
       "name" : "Full Quarter Revenue",
@@ -350,7 +350,7 @@
       "aggregation" : {
         "rule" : "NONE",
         "dataIsDense" : false,
-        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D0 Time.Quarter" ]
+        "aggregateByLevels" : [ "logicalLevel:SampleApp Lite.D0 Time2.Quarter" ]
       }
     }, {
       "name" : "All Offices Revenue",
@@ -388,7 +388,7 @@
       "tableMapping" : {
         "tables" : [ "physicalTable:Sample App Lite Data.F10 Revenue Facts (Order grain)" ]
       },
-      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time.Day Detail", "logicalLevel:SampleApp Lite.D2 Offices.Offices Detail", "logicalLevel:SampleApp Lite.D1 Products.Products Detail", "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Details" ],
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time2.Day Detail", "logicalLevel:SampleApp Lite.D2 Offices.Offices Detail", "logicalLevel:SampleApp Lite.D1 Products.Products Detail", "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Order Details" ],
       "combineWithOtherFragments" : false,
       "enableFragmentSelection" : false,
       "distinctValues" : false
@@ -398,13 +398,13 @@
       "tableMapping" : {
         "tables" : [ "physicalTable:Sample App Lite Data.F11 Revenue Facts Aggregate" ]
       },
-      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time.Month", "logicalLevel:SampleApp Lite.D1 Products.Products Detail", "logicalLevel:SampleApp Lite.D2 Offices.Total Offices", "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Total Orders" ],
+      "dataGranularity" : [ "logicalLevel:SampleApp Lite.D0 Time2.Month", "logicalLevel:SampleApp Lite.D1 Products.Products Detail", "logicalLevel:SampleApp Lite.D2 Offices.Total Offices", "logicalLevel:SampleApp Lite.D3 Orders (Facts Attributes).Total Orders" ],
       "combineWithOtherFragments" : false,
       "enableFragmentSelection" : false,
       "distinctValues" : false
     } ],
     "joins" : [ {
-      "rightTable" : "logicalTable:SampleApp Lite.D0 Time",
+      "rightTable" : "logicalTable:SampleApp Lite.D0 Time2",
       "joinType" : "INNER",
       "cardinality" : "MANY_TO_ZERO_OR_ONE"
     }, {
