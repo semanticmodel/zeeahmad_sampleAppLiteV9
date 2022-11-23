@@ -1,6 +1,7 @@
 {
   "database" : {
     "name" : "Sample App Lite Data",
+    "description" : "My Branch",
     "databaseType" : "ORACLE_DATABASE",
     "connectionPools" : [ {
       "name" : "SampleApp_Lite_Xml",
